@@ -1,7 +1,7 @@
 <!--
  * @Author: chenxy
  * @Date: 2021-01-12 00:26:15
- * @LastEditTime: 2021-01-12 01:12:39
+ * @LastEditTime: 2021-01-14 01:02:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \novel\src\view\chapterContent.vue
@@ -48,14 +48,16 @@ export default {
     async getChapterContent (chapterId) {
       let that = this;
       var ret = await axios.post('/chapter/getChapter/' + chapterId);
-      that.chapter = ret.chapter;
+      if (ret) {
+        that.chapter = ret.chapter;
+      }
       console.log(that.chapter);
     },
   },
   created () {
     let id = this.$route.query.id;
     this.getChapterContent(id);
-    // console.log('你好这是内容页' + id);
+    console.log('你好这是内容页' + id);
   }
 }
 </script>

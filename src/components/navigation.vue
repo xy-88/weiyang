@@ -1,7 +1,7 @@
 <!--
  * @Author: chenxy
  * @Date: 2021-01-05 00:08:42
- * @LastEditTime: 2021-01-09 13:45:53
+ * @LastEditTime: 2021-01-14 01:01:19
  * @LastEditors: Please set LastEditors
  * @Description: 导航
  * @FilePath: \novel\src\components\navigation.vue
@@ -13,7 +13,7 @@
       <el-menu-item index="1"><a href="#/">首页</a></el-menu-item>
       <el-menu-item index="2"><a href="#/novel">书单</a></el-menu-item>
       <el-menu-item index="3">分类</el-menu-item>
-      <el-menu-item index="4">排行榜</el-menu-item>
+      <el-menu-item index="4"><a href="#/ranking">排行榜</a></el-menu-item>
       <el-menu-item index="5">客户端</el-menu-item>
     </el-menu>
   </div>
@@ -47,16 +47,6 @@ export default {
   methods: {
     handleSelect (key, keyPath) {
       console.log(key, keyPath);
-      if (key == 1) {
-        keyPath = '#/';
-      }
-      if (key == 4) {
-        this.rank(key);
-      }
-    },
-    async rank (key) {
-      var ret = await axios.get('/rank/mm/total/' + 18);
-      console.log(ret);
     }
   }
 }
